@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #f4f5f8;
+  color: #1c1c1e;
+}
+
+.pantalla-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.tarjeta-login {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.logo-login {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 0.75rem;
+}
+
+.tarjeta-login h1 {
+  text-align: center;
+  margin-top: 0;
+  color: #3880ff;
+}
+
+.tarjeta-login p.subtitulo {
+  text-align: center;
+  color: #6b6b6f;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.85rem;
+  color: #6b6b6f;
+  margin-bottom: 0.25rem;
+}
+
+.campo input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d7d8da;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.campo input.con-error {
+  border-color: #eb445a;
+}
+
+.error-texto {
+  color: #eb445a;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.error-login {
+  background: #fdeaec;
+  color: #cf3c4f;
+  border: 1px solid #f3c3ca;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+button.btn-primario {
+  width: 100%;
+  padding: 0.7rem;
+  background: #3880ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button.btn-primario:hover {
+  background: #3171e0;
+}
+
+button.btn-secundario {
+  background: transparent;
+  color: #3880ff;
+  border: 1px solid #3880ff;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+button.btn-peligro {
+  background: #eb445a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.encabezado-app {
+  background: #fff;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+}
+
+.encabezado-app h1 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #1c1c1e;
+}
+
+.contenedor {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.buscador input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #d7d8da;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  background: #fff;
+}
+
+.tarjeta-formulario {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.tarjeta-formulario h2 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+.fila-formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .fila-formulario {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lista-pacientes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.item-paciente {
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.item-paciente .nombre {
+  font-weight: 600;
+}
+
+.item-paciente .detalle {
+  color: #6b6b6f;
+  font-size: 0.85rem;
+}
+
+.sin-resultados {
+  text-align: center;
+  color: #92949c;
+  padding: 2rem 0;
+}
