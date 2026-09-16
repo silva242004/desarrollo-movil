@@ -27,12 +27,7 @@ Requisitos y donde quedaron resueltos:
   `router.navigateRoot('/login')` (limpia el historial de navegacion).
 
 
-## Como correrlo
 
-```bash
-npm install
-npm run dev
-```
 
 `user@mail.com` / `123`
 
