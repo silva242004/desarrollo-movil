@@ -1,0 +1,7 @@
+{
+  "name": "sensores",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

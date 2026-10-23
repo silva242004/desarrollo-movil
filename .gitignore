@@ -1,0 +1,25 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Variables de entorno (claves de Firebase, OpenCage, etc.)
+.env
+
+# Android / Capacitor (se genera con `npx cap add android`)
+android/app/build
+android/.gradle
+android/local.properties
+# Config de Firebase para push (se descarga de la consola, ver README)
+android/app/google-services.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
