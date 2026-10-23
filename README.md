@@ -44,6 +44,28 @@ Notas:
 - Como en el Challenge 05, las redirecciones usan `RedirectOnce` en vez de
   `<Navigate>` (ver el README del Challenge 05).
 
+## Capturas
+
+Pruebas en el navegador con viewport de celular (390x844), usando cuentas de prueba.
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/capturas/01-menu.png" width="220"><br>Menú (Home) con las 3 secciones</td>
+    <td align="center"><img src="docs/capturas/02-contactos.png" width="220"><br>Contactos en Firestore</td>
+    <td align="center"><img src="docs/capturas/03-editar-contacto.png" width="220"><br>Editar contacto</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/capturas/04-tasks.png" width="220"><br>Tasks en Realtime Database</td>
+    <td align="center"><img src="docs/capturas/05-tiempo-real-pestana-1.png" width="220"><br>Tiempo real: pestaña 1 agrega la tarea</td>
+    <td align="center"><img src="docs/capturas/06-tiempo-real-pestana-2.png" width="220"><br>Tiempo real: aparece sola en la pestaña 2</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/capturas/07-frutas-duplicado.png" width="220"><br>Frutas en Dexie: nombre repetido</td>
+    <td align="center"><img src="docs/capturas/08-contactos-sin-conexion.png" width="220"><br>Sin conexión: Contactos deshabilitado</td>
+    <td align="center"><img src="docs/capturas/09-frutas-sin-conexion.png" width="220"><br>Sin conexión: Frutas sigue funcionando</td>
+  </tr>
+</table>
+
 ## Configurar Firebase
 
 Si ya hiciste el Challenge 05 puedes usar el mismo proyecto (paso 1 y 2 ya
