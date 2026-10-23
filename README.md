@@ -29,6 +29,33 @@ Requisitos y donde quedaron resueltos:
 Nota: Network no esta en la Clase 07 (viene de la Clase 06), pero es un
 sensor mas y ya tenia su hook, asi que se agrego como novena pagina.
 
+## Capturas
+
+Las que dicen "teléfono" se tomaron en un Android 13 real; las demás, en el navegador con viewport de celular (ubicación simulada y cámara falsa de Chromium).
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/capturas/01-home.png" width="220"><br>Home con un botón por sensor (teléfono)</td>
+    <td align="center"><img src="docs/capturas/02-geolocation.png" width="220"><br>Geolocation con seguimiento</td>
+    <td align="center"><img src="docs/capturas/03-camara-visor.png" width="220"><br>Camera: visor de pwa-elements</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/capturas/04-camara-foto.png" width="220"><br>Camera: foto tomada</td>
+    <td align="center"><img src="docs/capturas/05-motion.png" width="220"><br>Motion: acelerómetro y orientación (teléfono)</td>
+    <td align="center"><img src="docs/capturas/06-device.png" width="220"><br>Device: info, id, idioma y batería</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/capturas/07-haptics.png" width="220"><br>Haptics (teléfono)</td>
+    <td align="center"><img src="docs/capturas/08-filesystem.png" width="220"><br>Filesystem: archivo escrito y leído (teléfono)</td>
+    <td align="center"><img src="docs/capturas/09-local-notifications.png" width="220"><br>Local Notifications: pendiente (teléfono)</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/capturas/10-push-notificacion.png" width="220"><br>Push: notificación de Firebase con la app en segundo plano (teléfono)</td>
+    <td align="center"><img src="docs/capturas/11-push-mensajes.png" width="220"><br>Push: mensajes recibidos (teléfono, token oculto)</td>
+    <td align="center"><img src="docs/capturas/12-network-sin-conexion.png" width="220"><br>Network: cambia solo a sin conexión</td>
+  </tr>
+</table>
+
 ## Como correrlo en el navegador
 
 ```bash
