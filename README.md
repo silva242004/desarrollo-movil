@@ -44,6 +44,23 @@ Detalles que vale la pena mencionar:
   vuelve a disparar en cada cambio de ruta: al tocar "Registrarme" justo
   despues de abrir la app, el usuario rebotaba al login.
 
+## Capturas
+
+Pruebas en el navegador con viewport de celular (390x844), usando cuentas de prueba.
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/capturas/01-login.png" width="220"><br>Login (sin sesión, <code>/tasks</code> redirige aquí)</td>
+    <td align="center"><img src="docs/capturas/02-registro-error.png" width="220"><br>Registro con error de validación</td>
+    <td align="center"><img src="docs/capturas/03-lista-tareas.png" width="220"><br>Lista de tareas con botón Logout</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/capturas/04-detalle.png" width="220"><br>Detalle <code>/tasks/:id</code></td>
+    <td align="center"><img src="docs/capturas/05-editar.png" width="220"><br>Editar <code>/tasks/:id/edit</code></td>
+    <td align="center"><img src="docs/capturas/06-completada.png" width="220"><br>Tarea completada y otra eliminada</td>
+  </tr>
+</table>
+
 ## Configurar Firebase (paso a paso)
 
 1. Entra a https://console.firebase.google.com/ y crea un proyecto
