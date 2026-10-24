@@ -19,11 +19,13 @@ import {
 } from '@ionic/react';
 import { useMissions } from '../hooks/useMissions';
 import EvidenceMission from './missions/EvidenceMission';
+import MovementMission from './missions/MovementMission';
 import type { MissionProps } from './missions/types';
 
 // Que componente juega cada mision.
 const MISSION_COMPONENTS: Partial<Record<number, ComponentType<MissionProps>>> = {
   1: EvidenceMission,
+  2: MovementMission,
 };
 
 // Contenido de una mision. Va aparte con key={id} para que el estado (foto,
