@@ -20,12 +20,14 @@ import {
 import { useMissions } from '../hooks/useMissions';
 import EvidenceMission from './missions/EvidenceMission';
 import MovementMission from './missions/MovementMission';
+import StillnessMission from './missions/StillnessMission';
 import type { MissionProps } from './missions/types';
 
 // Que componente juega cada mision.
-const MISSION_COMPONENTS: Partial<Record<number, ComponentType<MissionProps>>> = {
+const MISSION_COMPONENTS: Record<number, ComponentType<MissionProps>> = {
   1: EvidenceMission,
   2: MovementMission,
+  3: StillnessMission,
 };
 
 // Contenido de una mision. Va aparte con key={id} para que el estado (foto,
@@ -60,13 +62,6 @@ function MissionBody({ id }: { id: number }) {
   }
 
   const Game = MISSION_COMPONENTS[id];
-  if (!Game) {
-    return (
-      <IonText color="medium">
-        <p>Esta mision todavia no esta disponible.</p>
-      </IonText>
-    );
-  }
   return (
     <>
       <p>{mission.description}</p>

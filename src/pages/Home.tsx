@@ -24,8 +24,17 @@ import { useMissions } from '../hooks/useMissions';
 // misiones. No calculo nada aqui: todo viene del MissionsContext.
 function Home() {
   const { user } = useAuth();
-  const { missions, points, totalPoints, completedCount, totalMissions, progress, ready, syncStatus } =
-    useMissions();
+  const {
+    missions,
+    points,
+    totalPoints,
+    completedCount,
+    totalMissions,
+    progress,
+    ready,
+    syncStatus,
+    notificationPermission,
+  } = useMissions();
 
   return (
     <IonPage>
@@ -50,6 +59,14 @@ function Home() {
                   {completedCount} / {totalMissions} misiones ({Math.round(progress * 100)}%)
                 </p>
                 <SyncStatusChip status={syncStatus} />
+                {/* Si nego las notificaciones la app sigue igual; solo le aviso
+                    que no va a recibir los avisos y donde activarlos. */}
+                {notificationPermission === 'denied' && (
+                  <IonNote color="warning" style={{ display: 'block' }}>
+                    Las notificaciones estan desactivadas: no veras los avisos de misiones. Puedes activarlas en
+                    Ajustes &gt; Apps &gt; Misiones &gt; Notificaciones.
+                  </IonNote>
+                )}
               </IonCardContent>
             </IonCard>
 
