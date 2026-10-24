@@ -1,0 +1,7 @@
+{
+  "name": "misiones",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
