@@ -1,6 +1,7 @@
 import { createContext, useCallback, useEffect, useMemo, useReducer, type ReactNode } from 'react';
 import { MISSIONS, TOTAL_POINTS } from '../config/missions';
 import { useAuth } from '../hooks/useAuth';
+import { useProgressSync, type SyncStatus } from '../hooks/useProgressSync';
 import type { Mission } from '../types';
 import {
   fromStoredProgress,
@@ -58,6 +59,8 @@ export interface MissionsContextValue {
   isFinished: boolean;
   // false mientras cargo el progreso del usuario que acaba de entrar.
   ready: boolean;
+  // Estado de la sincronizacion con Firestore.
+  syncStatus: SyncStatus;
   getMission: (id: number) => Mission | undefined;
   completeMission: (id: number) => void;
   reset: () => void;
@@ -70,8 +73,9 @@ export function MissionsProvider({ children }: { children: ReactNode }) {
   const uid = user?.uid ?? null;
   const [state, dispatch] = useReducer(missionsReducer, initialState);
 
-  // Al cambiar de usuario (login, logout, otra cuenta) cargo su progreso
-  // local. En la fase 4 aqui entra Firestore, que manda si hay conexion.
+  // Al cambiar de usuario (login, logout, otra cuenta) cargo primero su
+  // progreso local, para que la app abra al instante y funcione sin red.
+  // Despues useProgressSync lee Firestore y, si hay conexion, Firebase manda.
   useEffect(() => {
     const completedIds = uid ? fromStoredProgress(loadLocalProgress(uid)) : [];
     dispatch({ type: 'HYDRATE', uid, completedIds });
@@ -84,6 +88,21 @@ export function MissionsProvider({ children }: { children: ReactNode }) {
     if (!uid || state.ownerUid !== uid) return;
     saveLocalProgress(uid, toStoredProgress(state.completedIds));
   }, [uid, state]);
+
+  const ready = uid !== null && state.ownerUid === uid;
+
+  // Sincronizacion con Firestore. La llamo despues del efecto que guarda en
+  // local para que cada cambio quede primero en el telefono y luego en la nube.
+  const handleRemoteProgress = useCallback(
+    (completedIds: number[]) => dispatch({ type: 'HYDRATE', uid, completedIds }),
+    [uid],
+  );
+  const { status: syncStatus } = useProgressSync({
+    user,
+    completedIds: state.completedIds,
+    ready,
+    onRemoteProgress: handleRemoteProgress,
+  });
 
   const completeMission = useCallback((id: number) => dispatch({ type: 'COMPLETE_MISSION', id }), []);
   const reset = useCallback(() => dispatch({ type: 'RESET' }), []);
@@ -100,12 +119,13 @@ export function MissionsProvider({ children }: { children: ReactNode }) {
       totalMissions: MISSIONS.length,
       progress: completedCount / MISSIONS.length,
       isFinished: completedCount === MISSIONS.length,
-      ready: uid !== null && state.ownerUid === uid,
+      ready,
+      syncStatus,
       getMission: (id: number) => missions.find((m) => m.id === id),
       completeMission,
       reset,
     };
-  }, [state, uid, completeMission, reset]);
+  }, [state, ready, syncStatus, completeMission, reset]);
 
   return <MissionsContext.Provider value={value}>{children}</MissionsContext.Provider>;
 }

@@ -16,6 +16,7 @@ import {
 } from '@ionic/react';
 import AppHeader from '../components/AppHeader';
 import MissionStatusChip from '../components/MissionStatusChip';
+import SyncStatusChip from '../components/SyncStatusChip';
 import { useAuth } from '../hooks/useAuth';
 import { useMissions } from '../hooks/useMissions';
 
@@ -23,7 +24,8 @@ import { useMissions } from '../hooks/useMissions';
 // misiones. No calculo nada aqui: todo viene del MissionsContext.
 function Home() {
   const { user } = useAuth();
-  const { missions, points, totalPoints, completedCount, totalMissions, progress, ready } = useMissions();
+  const { missions, points, totalPoints, completedCount, totalMissions, progress, ready, syncStatus } =
+    useMissions();
 
   return (
     <IonPage>
@@ -47,6 +49,7 @@ function Home() {
                 <p className="ion-padding-top">
                   {completedCount} / {totalMissions} misiones ({Math.round(progress * 100)}%)
                 </p>
+                <SyncStatusChip status={syncStatus} />
               </IonCardContent>
             </IonCard>
 

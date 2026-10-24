@@ -8,6 +8,7 @@ import {
   type User,
 } from 'firebase/auth';
 import { auth } from '../firebase/config';
+import { createInitialProgress } from './useProgressSync';
 
 // Traduce los codigos de error de Firebase a mensajes para el usuario.
 function friendlyError(error: unknown): string {
@@ -76,6 +77,9 @@ export function useFirebaseAuth() {
       const credential = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(credential.user, { displayName });
       setProfileVersion((v) => v + 1);
+      // Documento inicial en Firestore con 0 puntos, para que aparezca en el
+      // ranking desde el primer momento.
+      await createInitialProgress(credential.user, displayName);
       return null;
     } catch (error) {
       return friendlyError(error);
