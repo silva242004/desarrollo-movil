@@ -6,6 +6,7 @@ import FullScreenSpinner from '../components/FullScreenSpinner';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import TabsLayout from '../pages/TabsLayout';
+import MissionPage from '../pages/MissionPage';
 
 // Redirige UNA sola vez al montarse. No se usa <Navigate> porque
 // IonRouterOutlet deja montadas las paginas anteriores y <Navigate> se
@@ -44,6 +45,8 @@ function AppRoutes() {
       <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
       {/* Todo lo que cuelga de /tabs (Misiones, Ranking, Resultados) exige sesion. */}
       <Route path="/tabs/*" element={<PrivateRoute><TabsLayout /></PrivateRoute>} />
+      {/* La mision va fuera de las tabs para que ocupe toda la pantalla. */}
+      <Route path="/mission/:id" element={<PrivateRoute><MissionPage /></PrivateRoute>} />
       <Route path="/" element={<RedirectOnce to="/tabs/missions" />} />
     </IonRouterOutlet>
   );
